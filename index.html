@@ -1,545 +1,1959 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>VIAME — iOS Developer Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>VIAME — Sara | iOS Developer</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
-                   "Helvetica Neue", Arial, sans-serif;
-      background: #050505;
-      color: white;
-    }
+/* =========================================
+   RESET
+========================================= */
 
-    /* NAVIGATION */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(5, 5, 5, 0.72);
-      backdrop-filter: blur(20px);
-      z-index: 100;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    .logo {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 3px;
-    }
+body {
+    font-family: -apple-system, BlinkMacSystemFont,
+    "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", Arial, sans-serif;
 
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      margin-left: 30px;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+    background: #050505;
+    color: #ffffff;
 
-    nav a:hover {
-      color: white;
-    }
+    overflow-x: hidden;
+}
 
-    /* HERO */
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 20px;
-    }
+/* =========================================
+   NAVIGATION
+========================================= */
 
-    .hero-content {
-      max-width: 1000px;
-    }
+nav {
 
-    .eyebrow {
-      color: #999;
-      font-size: 16px;
-      margin-bottom: 25px;
-    }
+    position: fixed;
 
-    h1 {
-      font-size: clamp(55px, 9vw, 120px);
-      line-height: 0.95;
-      letter-spacing: -5px;
-      margin-bottom: 35px;
-    }
+    top: 0;
+    left: 0;
 
-    .gradient-text {
-      background: linear-gradient(
+    width: 100%;
+
+    padding: 20px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(5,5,5,0.72);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+
+    z-index: 1000;
+}
+
+
+.logo {
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+.nav-links a {
+
+    color: #999;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+
+    color: white;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 140px 25px 80px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.hero-glow {
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    border-radius: 50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(90,80,255,0.18),
+        transparent 65%
+    );
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+.hero-content {
+
+    max-width: 1050px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.eyebrow {
+
+    color: #888;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 28px;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(60px, 9vw, 125px);
+
+    line-height: 0.95;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 35px;
+}
+
+
+.gradient-text {
+
+    background:
+    linear-gradient(
         90deg,
         #ffffff,
-        #a9a9a9
-      );
+        #777
+    );
 
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.hero-description {
+
+    max-width: 680px;
+
+    margin: auto;
+
+    color: #999;
+
+    font-size: 21px;
+
+    line-height: 1.65;
+}
+
+
+.hero-buttons {
+
+    margin-top: 45px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.primary-button,
+.secondary-button {
+
+    display: inline-block;
+
+    padding: 15px 27px;
+
+    border-radius: 100px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.primary-button {
+
+    background: white;
+
+    color: black;
+}
+
+
+.primary-button:hover {
+
+    transform: scale(1.05);
+}
+
+
+.secondary-button {
+
+    color: white;
+
+    border: 1px solid #333;
+
+    background: #111;
+}
+
+
+.secondary-button:hover {
+
+    background: #191919;
+}
+
+
+/* =========================================
+   SECTION GENERAL
+========================================= */
+
+.section {
+
+    padding: 140px 7%;
+}
+
+
+.section-label {
+
+    color: #777;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+}
+
+
+.section-title {
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    letter-spacing: -4px;
+
+    line-height: 1;
+
+    margin-bottom: 70px;
+}
+
+
+/* =========================================
+   PROJECT CARDS
+========================================= */
+
+.project-card {
+
+    min-height: 650px;
+
+    border-radius: 42px;
+
+    padding: 65px;
+
+    margin-bottom: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    transition:
+    transform 0.5s ease,
+    border-color 0.5s ease;
+}
+
+
+.project-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: rgba(255,255,255,0.18);
+}
+
+
+.era {
+
+    background:
+    radial-gradient(
+        circle at 80% 20%,
+        rgba(142,86,190,0.75),
+        transparent 32%
+    ),
+    linear-gradient(
+        135deg,
+        #1d1423,
+        #080808
+    );
+}
+
+
+.viame {
+
+    background:
+    radial-gradient(
+        circle at 80% 20%,
+        rgba(56,105,255,0.65),
+        transparent 32%
+    ),
+    linear-gradient(
+        135deg,
+        #10182d,
+        #080808
+    );
+}
+
+
+.lunara {
+
+    background:
+    radial-gradient(
+        circle at 80% 20%,
+        rgba(219,127,108,0.65),
+        transparent 32%
+    ),
+    linear-gradient(
+        135deg,
+        #291713,
+        #080808
+    );
+}
+
+
+.project-number {
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+.project-content {
+
+    max-width: 650px;
+}
+
+
+.project-card h3 {
+
+    font-size: clamp(60px, 9vw, 110px);
+
+    letter-spacing: -6px;
+
+    line-height: 0.9;
+
+    margin-bottom: 25px;
+}
+
+
+.project-card p {
+
+    color: #c4c4c4;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    max-width: 560px;
+}
+
+
+.tags {
+
+    margin-top: 25px;
+}
+
+
+.tag {
+
+    display: inline-block;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    margin-right: 7px;
+
+    margin-bottom: 8px;
+
+    color: #ddd;
+
+    font-size: 13px;
+}
+
+
+.project-button {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+
+.project-button span {
+
+    display: inline-block;
+
+    transition: transform 0.3s;
+}
+
+
+.project-button:hover span {
+
+    transform: translateX(7px);
+}
+
+
+/* =========================================
+   PROJECT CASE STUDIES
+========================================= */
+
+.case-study {
+
+    padding: 160px 7%;
+
+    border-top: 1px solid #181818;
+
+    scroll-margin-top: 60px;
+}
+
+
+.case-study-inner {
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+.case-number {
+
+    color: #666;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+}
+
+
+.case-study h2 {
+
+    font-size: clamp(60px, 9vw, 120px);
+
+    letter-spacing: -6px;
+
+    line-height: 0.9;
+
+    margin-bottom: 40px;
+}
+
+
+.case-intro {
+
+    color: #aaa;
+
+    max-width: 760px;
+
+    font-size: 22px;
+
+    line-height: 1.65;
+
+    margin-bottom: 80px;
+}
+
+
+.case-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.case-box {
+
+    background: #101010;
+
+    border: 1px solid #1d1d1d;
+
+    border-radius: 28px;
+
+    padding: 35px;
+
+    min-height: 220px;
+}
+
+
+.case-box h4 {
+
+    font-size: 17px;
+
+    margin-bottom: 18px;
+}
+
+
+.case-box p {
+
+    color: #888;
+
+    line-height: 1.6;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   ERA PREVIEW PLACEHOLDER
+========================================= */
+
+.app-preview {
+
+    margin-top: 80px;
+
+    min-height: 500px;
+
+    border-radius: 35px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #181818,
+        #0b0b0b
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    border: 1px solid #1c1c1c;
+
+    padding: 50px;
+}
+
+
+.app-preview p {
+
+    color: #666;
+
+    font-size: 16px;
+
+    max-width: 500px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about {
+
+    padding: 180px 7%;
+}
+
+
+.about-inner {
+
+    max-width: 1100px;
+}
+
+
+.about h2 {
+
+    font-size: clamp(50px, 7vw, 90px);
+
+    letter-spacing: -5px;
+
+    line-height: 1;
+
+    margin-bottom: 50px;
+}
+
+
+.about-text {
+
+    max-width: 780px;
+
+    color: #999;
+
+    font-size: 21px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills {
+
+    padding: 120px 7% 170px;
+}
+
+
+.skills-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.skill {
+
+    background: #101010;
+
+    border: 1px solid #1d1d1d;
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    font-size: 20px;
+
+    transition: 0.3s;
+}
+
+
+.skill:hover {
+
+    background: #151515;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+
+    min-height: 75vh;
+
+    padding: 130px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.contact-inner {
+
+    max-width: 950px;
+}
+
+
+.contact h2 {
+
+    font-size: clamp(55px, 8vw, 110px);
+
+    letter-spacing: -6px;
+
+    line-height: 0.95;
+}
+
+
+.contact p {
+
+    color: #888;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    margin: 30px auto 40px;
+
+    max-width: 650px;
+}
+
+
+.social-links {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.social-links a {
+
+    padding: 13px 22px;
+
+    border: 1px solid #292929;
+
+    border-radius: 50px;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+
+.social-links a:hover {
+
+    background: white;
+
+    color: black;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    padding: 35px 7%;
+
+    border-top: 1px solid #151515;
+
+    color: #555;
+
+    font-size: 13px;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   SCROLL ANIMATION
+========================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    nav {
+
+        padding: 18px 6%;
     }
 
-    .hero-description {
-      max-width: 650px;
-      margin: auto;
-      color: #999;
-      font-size: 21px;
-      line-height: 1.6;
+
+    .nav-links {
+
+        gap: 15px;
     }
 
-    .hero-button {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 15px 28px;
-      background: white;
-      color: black;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
+
+    .nav-links a {
+
+        font-size: 12px;
     }
 
-    .hero-button:hover {
-      transform: scale(1.05);
+
+    .hero h1 {
+
+        letter-spacing: -3px;
     }
 
-    /* PROJECTS */
 
-    .projects {
-      padding: 130px 7%;
+    .section {
+
+        padding: 100px 5%;
     }
 
-    .section-label {
-      color: #777;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
+
+    .project-card {
+
+        padding: 38px;
+
+        min-height: 570px;
+
+        border-radius: 28px;
     }
 
-    .section-title {
-      font-size: clamp(40px, 6vw, 80px);
-      letter-spacing: -3px;
-      margin-bottom: 70px;
+
+    .project-card h3 {
+
+        letter-spacing: -4px;
     }
 
-    .project {
-      min-height: 650px;
-      border-radius: 40px;
-      padding: 70px;
-      margin-bottom: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      position: relative;
+
+    .case-study {
+
+        padding: 110px 6%;
     }
 
-    .era {
-      background:
-        radial-gradient(circle at 70% 30%, #643d8e, transparent 35%),
-        linear-gradient(135deg, #18121d, #080808);
+
+    .case-study h2 {
+
+        letter-spacing: -4px;
     }
 
-    .lunara {
-      background:
-        radial-gradient(circle at 75% 25%, #bf7568, transparent 35%),
-        linear-gradient(135deg, #251814, #090909);
+
+    .case-grid {
+
+        grid-template-columns: 1fr;
     }
 
-    .project-number {
-      color: rgba(255,255,255,0.5);
-      font-size: 14px;
-    }
-
-    .project h3 {
-      font-size: clamp(55px, 8vw, 100px);
-      letter-spacing: -5px;
-      margin-bottom: 15px;
-    }
-
-    .project p {
-      max-width: 520px;
-      font-size: 19px;
-      line-height: 1.5;
-      color: #c6c6c6;
-    }
-
-    .tags {
-      margin-top: 25px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 50px;
-      margin-right: 7px;
-      margin-bottom: 8px;
-      font-size: 13px;
-      color: #ccc;
-    }
-
-    /* ABOUT */
-
-    .about {
-      padding: 170px 7%;
-      max-width: 1200px;
-    }
-
-    .about h2 {
-      font-size: clamp(45px, 7vw, 85px);
-      line-height: 1.05;
-      letter-spacing: -4px;
-      margin-bottom: 50px;
-    }
-
-    .about p {
-      color: #999;
-      max-width: 750px;
-      font-size: 21px;
-      line-height: 1.7;
-    }
-
-    /* SKILLS */
-
-    .skills {
-      padding: 100px 7% 160px;
-    }
 
     .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 50px;
+
+        grid-template-columns: 1fr;
     }
 
-    .skill {
-      background: #111;
-      padding: 35px;
-      border-radius: 25px;
-      font-size: 20px;
-      border: 1px solid #1d1d1d;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      min-height: 70vh;
-      padding: 120px 7%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: clamp(50px, 8vw, 100px);
-      letter-spacing: -5px;
-    }
-
-    .contact p {
-      color: #888;
-      font-size: 20px;
-      margin: 25px 0 40px;
-    }
-
-    .contact a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-    }
 
     footer {
-      padding: 30px 7%;
-      color: #555;
-      font-size: 13px;
-      display: flex;
-      justify-content: space-between;
-    }
 
-    /* ANIMATION */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: 0.8s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-
-      nav .links {
-        display: none;
-      }
-
-      h1 {
-        letter-spacing: -3px;
-      }
-
-      .project {
-        padding: 35px;
-        min-height: 550px;
-        border-radius: 25px;
-      }
-
-      .project h3 {
-        letter-spacing: -3px;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      footer {
         flex-direction: column;
+
         gap: 10px;
-      }
     }
-  </style>
+
+}
+
+
+@media (max-width: 550px) {
+
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(3) {
+
+        display: none;
+    }
+
+
+    .hero {
+
+        padding-left: 18px;
+
+        padding-right: 18px;
+    }
+
+
+    .hero-description {
+
+        font-size: 18px;
+    }
+
+
+    .project-card {
+
+        padding: 30px;
+    }
+
+
+    .project-card p {
+
+        font-size: 17px;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<nav>
-  <div class="logo">VIAME</div>
 
-  <div class="links">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<nav>
+
+    <div class="logo">
+        VIAME
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#work">
+            Work
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#skills">
+            Skills
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
 </nav>
 
 
+
+<!-- =========================================
+     HERO
+========================================= -->
+
 <section class="hero">
 
-  <div class="hero-content">
+    <div class="hero-glow"></div>
 
-    <div class="eyebrow">
-      iOS Developer Portfolio
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            iOS Developer Portfolio
+        </div>
+
+        <h1>
+
+            Building experiences
+
+            <br>
+
+            <span class="gradient-text">
+                for iPhone.
+            </span>
+
+        </h1>
+
+        <p class="hero-description">
+
+            I'm Sara, an aspiring iOS developer creating
+            thoughtful, intuitive and visually engaging
+            digital experiences using Swift and SwiftUI.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+            class="primary-button"
+            href="#work">
+
+                Explore my work ↓
+
+            </a>
+
+            <a
+            class="secondary-button"
+            href="#about">
+
+                About me
+
+            </a>
+
+        </div>
+
     </div>
-
-    <h1>
-      Building experiences
-      <span class="gradient-text">for iPhone.</span>
-    </h1>
-
-    <p class="hero-description">
-      I'm Sara, an aspiring iOS developer creating thoughtful,
-      intuitive and visually engaging digital experiences using
-      Swift and SwiftUI.
-    </p>
-
-    <a class="hero-button" href="#work">
-      Explore my work
-    </a>
-
-  </div>
 
 </section>
 
 
-<section class="projects" id="work">
 
-  <div class="section-label reveal">
-    Selected Work
-  </div>
+<!-- =========================================
+     PROJECTS
+========================================= -->
 
-  <h2 class="section-title reveal">
-    Things I've built.
-  </h2>
+<section
+class="section"
+id="work">
 
 
-  <div class="project era reveal">
-
-    <div class="project-number">
-      01 / iOS APPLICATION
+    <div class="section-label reveal">
+        Selected Work
     </div>
 
-    <div>
 
-      <h3>ERA</h3>
+    <h2 class="section-title reveal">
+        Things I've built.
+    </h2>
 
-      <p>
-        A photography experience that transforms modern photos
-        through visual styles inspired by different eras.
-        Built as a native iOS application.
-      </p>
 
-      <div class="tags">
-        <span class="tag">Swift</span>
-        <span class="tag">SwiftUI</span>
-        <span class="tag">Core Image</span>
-        <span class="tag">PhotosUI</span>
-      </div>
+
+    <!-- ERA -->
+
+    <div class="project-card era reveal">
+
+        <div class="project-number">
+
+            01 / NATIVE iOS APPLICATION
+
+        </div>
+
+
+        <div class="project-content">
+
+            <h3>
+                ERA
+            </h3>
+
+            <p>
+
+                A native iOS photography experience that
+                transforms modern photographs through visual
+                styles inspired by different eras.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span class="tag">
+                    Swift
+                </span>
+
+                <span class="tag">
+                    SwiftUI
+                </span>
+
+                <span class="tag">
+                    Core Image
+                </span>
+
+                <span class="tag">
+                    PhotosUI
+                </span>
+
+            </div>
+
+
+            <a
+            class="project-button"
+            href="#era-project">
+
+                Explore ERA
+                <span>→</span>
+
+            </a>
+
+        </div>
 
     </div>
 
-  </div>
 
 
-  <div class="project lunara reveal">
+    <!-- VIAME -->
 
-    <div class="project-number">
-      02 / PRODUCT CONCEPT
+    <div class="project-card viame reveal">
+
+        <div class="project-number">
+
+            02 / WEB DEVELOPMENT
+
+        </div>
+
+
+        <div class="project-content">
+
+            <h3>
+                VIAME
+            </h3>
+
+            <p>
+
+                My personal developer portfolio, designed and
+                built from scratch to document my journey into
+                software development and showcase the products
+                I'm creating.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span class="tag">
+                    HTML
+                </span>
+
+                <span class="tag">
+                    CSS
+                </span>
+
+                <span class="tag">
+                    JavaScript
+                </span>
+
+                <span class="tag">
+                    GitHub Pages
+                </span>
+
+            </div>
+
+
+            <a
+            class="project-button"
+            href="#viame-project">
+
+                Explore VIAME
+                <span>→</span>
+
+            </a>
+
+        </div>
+
     </div>
 
-    <div>
 
-      <h3>LUNARA</h3>
 
-      <p>
-        A social music discovery concept where people can explore
-        the playlists and listening worlds of other users and
-        public figures.
-      </p>
+    <!-- LUNARA -->
 
-      <div class="tags">
-        <span class="tag">Product Design</span>
-        <span class="tag">UI / UX</span>
-        <span class="tag">JavaScript</span>
-      </div>
+    <div class="project-card lunara reveal">
+
+        <div class="project-number">
+
+            03 / PRODUCT CONCEPT
+
+        </div>
+
+
+        <div class="project-content">
+
+            <h3>
+                LUNARA
+            </h3>
+
+            <p>
+
+                A social music discovery concept where users
+                can discover music through the personal
+                playlists and listening worlds of other
+                people and public figures.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span class="tag">
+                    Product Design
+                </span>
+
+                <span class="tag">
+                    UI / UX
+                </span>
+
+                <span class="tag">
+                    JavaScript
+                </span>
+
+                <span class="tag">
+                    Prototyping
+                </span>
+
+            </div>
+
+
+            <a
+            class="project-button"
+            href="#lunara-project">
+
+                Explore LUNARA
+                <span>→</span>
+
+            </a>
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<section class="about" id="about">
 
-  <div class="section-label reveal">
-    About
-  </div>
+<!-- =========================================
+     ERA CASE STUDY
+========================================= -->
 
-  <h2 class="reveal">
-    From healthcare<br>
-    to technology.
-  </h2>
+<section
+class="case-study"
+id="era-project">
 
-  <p class="reveal">
-    My background in mental health nursing taught me how to
-    understand people, solve complex problems, communicate clearly
-    and remain calm in challenging situations.
 
-    I'm now bringing that human-centred perspective into software
-    development, with a particular focus on creating intuitive
-    experiences for iOS.
-  </p>
+    <div class="case-study-inner">
+
+
+        <div class="case-number reveal">
+
+            PROJECT 01
+
+        </div>
+
+
+        <h2 class="reveal">
+
+            ERA
+
+        </h2>
+
+
+        <p class="case-intro reveal">
+
+            ERA explores how photography can recreate the
+            feeling of different periods in time. Users can
+            select a photograph, choose an era and experiment
+            with visual treatments inspired by different
+            decades.
+
+        </p>
+
+
+
+        <div class="case-grid">
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    The Idea
+                </h4>
+
+                <p>
+
+                    Create an intuitive photography application
+                    that makes exploring different visual eras
+                    simple, creative and enjoyable.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    Development
+                </h4>
+
+                <p>
+
+                    Built as a native iOS project using SwiftUI,
+                    PhotosUI and Core Image while learning how
+                    image processing and interface state work
+                    together.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    What I'm Learning
+                </h4>
+
+                <p>
+
+                    SwiftUI architecture, user interface design,
+                    image processing, debugging and building
+                    more polished native iOS experiences.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="app-preview reveal">
+
+            <p>
+
+                ERA screenshots and iPhone previews will appear
+                here. This will become an interactive visual
+                showcase of the application.
+
+            </p>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<section class="skills" id="skills">
 
-  <div class="section-label reveal">
-    Technologies
-  </div>
+<!-- =========================================
+     VIAME CASE STUDY
+========================================= -->
 
-  <h2 class="section-title reveal">
-    What I'm learning & building with.
-  </h2>
+<section
+class="case-study"
+id="viame-project">
 
-  <div class="skills-grid">
 
-    <div class="skill reveal">Swift</div>
-    <div class="skill reveal">SwiftUI</div>
-    <div class="skill reveal">Xcode</div>
-    <div class="skill reveal">Core Image</div>
-    <div class="skill reveal">PhotosUI</div>
-    <div class="skill reveal">Git & GitHub</div>
+    <div class="case-study-inner">
 
-  </div>
+
+        <div class="case-number reveal">
+
+            PROJECT 02
+
+        </div>
+
+
+        <h2 class="reveal">
+
+            VIAME
+
+        </h2>
+
+
+        <p class="case-intro reveal">
+
+            VIAME is the website you're viewing now.
+            I created it as my personal development space —
+            somewhere to showcase my projects, document my
+            progression and develop my front-end skills
+            alongside iOS development.
+
+        </p>
+
+
+
+        <div class="case-grid">
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    The Goal
+                </h4>
+
+                <p>
+
+                    Build a clean and engaging portfolio that
+                    allows people to explore my development
+                    projects rather than simply reading a CV.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    Built With
+                </h4>
+
+                <p>
+
+                    HTML, CSS and JavaScript with responsive
+                    layouts, interactive navigation, animations
+                    and deployment through GitHub Pages.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    Development
+                </h4>
+
+                <p>
+
+                    VIAME will continue evolving as my technical
+                    skills grow, with new projects, case studies
+                    and interactive experiences added over time.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<section class="contact" id="contact">
 
-  <div class="section-label reveal">
-    Contact
-  </div>
+<!-- =========================================
+     LUNARA CASE STUDY
+========================================= -->
 
-  <h2 class="reveal">
-    Let's create something.
-  </h2>
+<section
+class="case-study"
+id="lunara-project">
 
-  <p class="reveal">
-    I'm currently building my skills in iOS development
-    and exploring opportunities to grow as a software developer.
-  </p>
 
-  <div class="reveal">
-    <a href="#">GitHub</a>
-    <a href="#">LinkedIn</a>
-    <a href="mailto:your@email.com">Email</a>
-  </div>
+    <div class="case-study-inner">
+
+
+        <div class="case-number reveal">
+
+            PROJECT 03
+
+        </div>
+
+
+        <h2 class="reveal">
+
+            LUNARA
+
+        </h2>
+
+
+        <p class="case-intro reveal">
+
+            LUNARA is a social music discovery concept exploring
+            a different way of discovering music — through the
+            people whose taste you find interesting.
+
+        </p>
+
+
+
+        <div class="case-grid">
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    The Concept
+                </h4>
+
+                <p>
+
+                    Every user has their own music profile and
+                    personal playlists, including public figures
+                    who choose to create verified accounts.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    Discovery
+                </h4>
+
+                <p>
+
+                    Instead of discovering music only through
+                    algorithms, users can explore what other
+                    people are listening to and the playlists
+                    they personally create.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="case-box reveal">
+
+                <h4>
+                    Prototype
+                </h4>
+
+                <p>
+
+                    The project allows me to explore product
+                    thinking, interface design, user experience
+                    and front-end development.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 </section>
 
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section
+class="about"
+id="about">
+
+
+    <div class="about-inner">
+
+
+        <div class="section-label reveal">
+
+            About Me
+
+        </div>
+
+
+        <h2 class="reveal">
+
+            From healthcare
+            <br>
+            to technology.
+
+        </h2>
+
+
+        <p class="about-text reveal">
+
+            My professional background is in mental health
+            nursing, where I developed strong skills in
+            communication, problem-solving, decision-making
+            and understanding people's needs.
+
+            <br><br>
+
+            I'm now applying that human-centred perspective
+            to software development while building my
+            technical skills in Swift, SwiftUI and iOS
+            development.
+
+            <br><br>
+
+            I enjoy taking an idea from concept to something
+            people can actually interact with — learning,
+            experimenting and improving the experience
+            throughout the process.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SKILLS
+========================================= -->
+
+<section
+class="skills"
+id="skills">
+
+
+    <div class="section-label reveal">
+
+        Technologies
+
+    </div>
+
+
+    <h2 class="section-title reveal">
+
+        What I'm building with.
+
+    </h2>
+
+
+
+    <div class="skills-grid">
+
+
+        <div class="skill reveal">
+            Swift
+        </div>
+
+
+        <div class="skill reveal">
+            SwiftUI
+        </div>
+
+
+        <div class="skill reveal">
+            Xcode
+        </div>
+
+
+        <div class="skill reveal">
+            Core Image
+        </div>
+
+
+        <div class="skill reveal">
+            PhotosUI
+        </div>
+
+
+        <div class="skill reveal">
+            Git & GitHub
+        </div>
+
+
+        <div class="skill reveal">
+            HTML
+        </div>
+
+
+        <div class="skill reveal">
+            CSS
+        </div>
+
+
+        <div class="skill reveal">
+            JavaScript
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section
+class="contact"
+id="contact">
+
+
+    <div class="contact-inner">
+
+
+        <div class="section-label reveal">
+
+            Contact
+
+        </div>
+
+
+        <h2 class="reveal">
+
+            Let's create
+            something.
+
+        </h2>
+
+
+        <p class="reveal">
+
+            I'm currently developing my skills in iOS
+            development and building projects as I work
+            towards opportunities in software engineering.
+
+        </p>
+
+
+        <div class="social-links reveal">
+
+
+            <a
+            href="https://github.com/svradoll"
+            target="_blank">
+
+                GitHub
+
+            </a>
+
+
+            <!-- Add your LinkedIn URL here -->
+
+            <a
+            href="#">
+
+                LinkedIn
+
+            </a>
+
+
+            <!-- Replace this with your email -->
+
+            <a
+            href="mailto:YOUR-EMAIL-HERE">
+
+                Email
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
 
-  <span>© 2026 VIAME</span>
+    <span>
 
-  <span>Designed & built by Sara</span>
+        © 2026 VIAME
+
+    </span>
+
+
+    <span>
+
+        Designed & built by Sara
+
+    </span>
 
 </footer>
 
 
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
 <script>
 
-  const elements = document.querySelectorAll(".reveal");
 
-  function reveal() {
+/* SCROLL REVEAL */
 
-    const windowHeight = window.innerHeight;
+const revealElements =
+document.querySelectorAll(".reveal");
 
-    elements.forEach(element => {
 
-      const elementTop =
+function revealOnScroll() {
+
+    const windowHeight =
+    window.innerHeight;
+
+
+    revealElements.forEach(function(element) {
+
+        const elementTop =
         element.getBoundingClientRect().top;
 
-      if (elementTop < windowHeight - 100) {
-        element.classList.add("active");
-      }
+
+        if (elementTop < windowHeight - 80) {
+
+            element.classList.add("active");
+
+        }
 
     });
 
-  }
+}
 
-  window.addEventListener("scroll", reveal);
 
-  reveal();
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+
+revealOnScroll();
+
+
+
+/* SMOOTHER INTERNAL NAVIGATION */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(function(link) {
+
+    link.addEventListener(
+        "click",
+        function(event) {
+
+            const targetID =
+            this.getAttribute("href");
+
+
+            if (
+                targetID === "#" ||
+                targetID.length <= 1
+            ) {
+
+                return;
+
+            }
+
+
+            const target =
+            document.querySelector(targetID);
+
+
+            if (target) {
+
+                event.preventDefault();
+
+
+                target.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }
+
+        }
+    );
+
+});
+
 
 </script>
 
+
 </body>
+
 </html>
