@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VIAME — iOS Developer Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                   "Helvetica Neue", Arial, sans-serif;
+      background: #050505;
+      color: white;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 5, 5, 0.72);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 30px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+    }
+
+    .eyebrow {
+      color: #999;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 9vw, 120px);
+      line-height: 0.95;
+      letter-spacing: -5px;
+      margin-bottom: 35px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        #ffffff,
+        #a9a9a9
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin: auto;
+      color: #999;
+      font-size: 21px;
+      line-height: 1.6;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 28px;
+      background: white;
+      color: black;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      transform: scale(1.05);
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      padding: 130px 7%;
+    }
+
+    .section-label {
+      color: #777;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: clamp(40px, 6vw, 80px);
+      letter-spacing: -3px;
+      margin-bottom: 70px;
+    }
+
+    .project {
+      min-height: 650px;
+      border-radius: 40px;
+      padding: 70px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .era {
+      background:
+        radial-gradient(circle at 70% 30%, #643d8e, transparent 35%),
+        linear-gradient(135deg, #18121d, #080808);
+    }
+
+    .lunara {
+      background:
+        radial-gradient(circle at 75% 25%, #bf7568, transparent 35%),
+        linear-gradient(135deg, #251814, #090909);
+    }
+
+    .project-number {
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+
+    .project h3 {
+      font-size: clamp(55px, 8vw, 100px);
+      letter-spacing: -5px;
+      margin-bottom: 15px;
+    }
+
+    .project p {
+      max-width: 520px;
+      font-size: 19px;
+      line-height: 1.5;
+      color: #c6c6c6;
+    }
+
+    .tags {
+      margin-top: 25px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      margin-right: 7px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    /* ABOUT */
+
+    .about {
+      padding: 170px 7%;
+      max-width: 1200px;
+    }
+
+    .about h2 {
+      font-size: clamp(45px, 7vw, 85px);
+      line-height: 1.05;
+      letter-spacing: -4px;
+      margin-bottom: 50px;
+    }
+
+    .about p {
+      color: #999;
+      max-width: 750px;
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      padding: 100px 7% 160px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 50px;
+    }
+
+    .skill {
+      background: #111;
+      padding: 35px;
+      border-radius: 25px;
+      font-size: 20px;
+      border: 1px solid #1d1d1d;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      min-height: 70vh;
+      padding: 120px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: clamp(50px, 8vw, 100px);
+      letter-spacing: -5px;
+    }
+
+    .contact p {
+      color: #888;
+      font-size: 20px;
+      margin: 25px 0 40px;
+    }
+
+    .contact a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 30px 7%;
+      color: #555;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      nav .links {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .project {
+        padding: 35px;
+        min-height: 550px;
+        border-radius: 25px;
+      }
+
+      .project h3 {
+        letter-spacing: -3px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">VIAME</div>
+
+  <div class="links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      iOS Developer Portfolio
+    </div>
+
+    <h1>
+      Building experiences
+      <span class="gradient-text">for iPhone.</span>
+    </h1>
+
+    <p class="hero-description">
+      I'm Sara, an aspiring iOS developer creating thoughtful,
+      intuitive and visually engaging digital experiences using
+      Swift and SwiftUI.
+    </p>
+
+    <a class="hero-button" href="#work">
+      Explore my work
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="projects" id="work">
+
+  <div class="section-label reveal">
+    Selected Work
+  </div>
+
+  <h2 class="section-title reveal">
+    Things I've built.
+  </h2>
+
+
+  <div class="project era reveal">
+
+    <div class="project-number">
+      01 / iOS APPLICATION
+    </div>
+
+    <div>
+
+      <h3>ERA</h3>
+
+      <p>
+        A photography experience that transforms modern photos
+        through visual styles inspired by different eras.
+        Built as a native iOS application.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Swift</span>
+        <span class="tag">SwiftUI</span>
+        <span class="tag">Core Image</span>
+        <span class="tag">PhotosUI</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="project lunara reveal">
+
+    <div class="project-number">
+      02 / PRODUCT CONCEPT
+    </div>
+
+    <div>
+
+      <h3>LUNARA</h3>
+
+      <p>
+        A social music discovery concept where people can explore
+        the playlists and listening worlds of other users and
+        public figures.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Product Design</span>
+        <span class="tag">UI / UX</span>
+        <span class="tag">JavaScript</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+  <div class="section-label reveal">
+    About
+  </div>
+
+  <h2 class="reveal">
+    From healthcare<br>
+    to technology.
+  </h2>
+
+  <p class="reveal">
+    My background in mental health nursing taught me how to
+    understand people, solve complex problems, communicate clearly
+    and remain calm in challenging situations.
+
+    I'm now bringing that human-centred perspective into software
+    development, with a particular focus on creating intuitive
+    experiences for iOS.
+  </p>
+
+</section>
+
+
+<section class="skills" id="skills">
+
+  <div class="section-label reveal">
+    Technologies
+  </div>
+
+  <h2 class="section-title reveal">
+    What I'm learning & building with.
+  </h2>
+
+  <div class="skills-grid">
+
+    <div class="skill reveal">Swift</div>
+    <div class="skill reveal">SwiftUI</div>
+    <div class="skill reveal">Xcode</div>
+    <div class="skill reveal">Core Image</div>
+    <div class="skill reveal">PhotosUI</div>
+    <div class="skill reveal">Git & GitHub</div>
+
+  </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+  <div class="section-label reveal">
+    Contact
+  </div>
+
+  <h2 class="reveal">
+    Let's create something.
+  </h2>
+
+  <p class="reveal">
+    I'm currently building my skills in iOS development
+    and exploring opportunities to grow as a software developer.
+  </p>
+
+  <div class="reveal">
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="mailto:your@email.com">Email</a>
+  </div>
+
+</section>
+
+
+<footer>
+
+  <span>© 2026 VIAME</span>
+
+  <span>Designed & built by Sara</span>
+
+</footer>
+
+
+<script>
+
+  const elements = document.querySelectorAll(".reveal");
+
+  function reveal() {
+
+    const windowHeight = window.innerHeight;
+
+    elements.forEach(element => {
+
+      const elementTop =
+        element.getBoundingClientRect().top;
+
+      if (elementTop < windowHeight - 100) {
+        element.classList.add("active");
+      }
+
+    });
+
+  }
+
+  window.addEventListener("scroll", reveal);
+
+  reveal();
+
+</script>
+
+</body>
+</html>
